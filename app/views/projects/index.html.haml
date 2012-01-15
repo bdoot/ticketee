@@ -1,5 +1,5 @@
 %p= link_to "New Project", new_project_path
-
+%br
 %h2
   - @projects.each do |project|
-    = link_to project.name, project
+    %ul= link_to project.name, project

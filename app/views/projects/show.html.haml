@@ -1,3 +1,5 @@
 %h2
   = @project.name
   - title @project.name, "Projects"
+  %br
+  = link_to "Edit Project", edit_project_path(@project)
