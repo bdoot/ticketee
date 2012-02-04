@@ -4,11 +4,15 @@ Feature: Creating projects
   I want to create them easily
 
   Background:
+    Given there are the following users:
+      | email             | password | admin |
+      | user@ticketee.com | password | true  |
+    And I am signed in as them
     Given I am on the homepage
     When I follow "New Project"
 
   Scenario: Creating a project
-    And I fill in "Name" with "TextMate 2"
+    When I fill in "Name" with "TextMate 2"
     And I press "Create Project"
 
     Then I should see "The project has been created."
@@ -16,7 +20,7 @@ Feature: Creating projects
     And I should see "TextMate 2 - Projects - Ticketee"
 
   Scenario: Creating a project without a name
-    And I press "Create Project"
+    When I press "Create Project"
 
     Then I should see "The project has not been created."
     And I should see "Name can't be blank"
