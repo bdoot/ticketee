@@ -5,6 +5,10 @@ Feature:
 
   Background:
     Given there is a project called "Internet Explorer"
+    And there are the following users:
+      | email             | password |
+      | user@ticketee.com | password |
+    And I am signed in as them
     And I am on the homepage
     When I follow "Internet Explorer"
     And I follow "New Ticket"
@@ -16,6 +20,7 @@ Feature:
     Then I should see "The ticket has been created"
     And I should see "Non-standard compliance"
     And I should see "My pages are ugly!"
+    And I should see "Created by user@ticketee.com"
 
   Scenario: Creating a new ticket with invalid parameters
     When I press "Create Ticket"
