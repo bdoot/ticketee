@@ -1,4 +1,5 @@
-%p= link_to "New Project", new_project_path
+- admin_only do
+  %p= link_to "New Project", new_project_path
 %br
 %h2
   - @projects.each do |project|
